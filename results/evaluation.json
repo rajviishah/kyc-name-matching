@@ -1,0 +1,2061 @@
+{
+  "n_pairs": 150,
+  "n_match": 94,
+  "n_non_match": 56,
+  "primary_metric": "f0.5",
+  "results": [
+    {
+      "algorithm": "token_overlap",
+      "description": "Normalized token Dice, initials expand to a matching given name",
+      "threshold": 0.67,
+      "precision": 0.8421,
+      "recall": 0.6809,
+      "f0.5": 0.804,
+      "f1": 0.7529,
+      "tp": 64,
+      "fp": 12,
+      "fn": 30,
+      "tn": 44,
+      "by_category": {
+        "compound": {
+          "precision": 1.0,
+          "recall": 0.1429,
+          "f0.5": 0.4545,
+          "tp": 1,
+          "fp": 0,
+          "fn": 6,
+          "tn": 1
+        },
+        "honorifics": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3
+        },
+        "initials": {
+          "precision": 0.6364,
+          "recall": 1.0,
+          "f0.5": 0.6863,
+          "tp": 14,
+          "fp": 8,
+          "fn": 0,
+          "tn": 0
+        },
+        "middle_relation": {
+          "precision": 0.9333,
+          "recall": 1.0,
+          "f0.5": 0.9459,
+          "tp": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 4
+        },
+        "name_order": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        },
+        "near_duplicate": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f0.5": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 26
+        },
+        "south_indian": {
+          "precision": 0.7,
+          "recall": 0.875,
+          "f0.5": 0.7292,
+          "tp": 7,
+          "fp": 3,
+          "fn": 1,
+          "tn": 0
+        },
+        "spacing": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f0.5": 0.9091,
+          "tp": 6,
+          "fp": 0,
+          "fn": 3,
+          "tn": 2
+        },
+        "transliteration": {
+          "precision": 1.0,
+          "recall": 0.1667,
+          "f0.5": 0.5,
+          "tp": 4,
+          "fp": 0,
+          "fn": 20,
+          "tn": 4
+        }
+      },
+      "errors": [
+        {
+          "id": "p013",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Kumar",
+          "name_b": "Sanjay Kumar",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "same initial + Kumar, different person"
+        },
+        {
+          "id": "p014",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "A. Patel",
+          "name_b": "Anil Patel",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Amit is not Anil; initial is not identity"
+        },
+        {
+          "id": "p015",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "R. Sharma",
+          "name_b": "Rohit Sharma",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "R. Sharma is also Rajesh, Ramesh, Rita..."
+        },
+        {
+          "id": "p016",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "K. Venkatesh",
+          "name_b": "Kiran Venkatesh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "K. was Krishna on the other pair"
+        },
+        {
+          "id": "p017",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "M. Iyer",
+          "name_b": "Meenakshi Iyer",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "M. S. Iyer vs a different M. Iyer"
+        },
+        {
+          "id": "p018",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "P. Rao",
+          "name_b": "Priya Rao",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "P.N. Rao is not Priya Rao"
+        },
+        {
+          "id": "p034",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Lakshmi Narayan",
+          "name_b": "Laxmi Narayan",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "ksh vs x"
+        },
+        {
+          "id": "p035",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Kavitha Reddy",
+          "name_b": "Kavita Reddy",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "south Indian -tha vs -ta"
+        },
+        {
+          "id": "p036",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Gautam Das",
+          "name_b": "Goutham Das",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "au vs ou"
+        },
+        {
+          "id": "p037",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Bharat Singh",
+          "name_b": "Bharath Singh",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "terminal h"
+        },
+        {
+          "id": "p038",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Poornima Rao",
+          "name_b": "Purnima Rao",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "oo vs u"
+        },
+        {
+          "id": "p039",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Aishwarya Nair",
+          "name_b": "Aiswarya Nair",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "shw vs sw"
+        },
+        {
+          "id": "p040",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Sreenivasulu",
+          "name_b": "Srinivasulu",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "ee vs i"
+        },
+        {
+          "id": "p041",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Abdul Rahman",
+          "name_b": "Abdur Rahman",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "ul vs ur"
+        },
+        {
+          "id": "p042",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Yusuf Sheikh",
+          "name_b": "Yousuf Shaikh",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "u/ou and sheikh/shaikh"
+        },
+        {
+          "id": "p044",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Chaitanya",
+          "name_b": "Chaithanya",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "inserted h"
+        },
+        {
+          "id": "p062",
+          "kind": "FP",
+          "category": "middle_relation",
+          "name_a": "Ananya Srinivasan",
+          "name_b": "Srinivasan Ananya",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "could be father; labeled as different people here"
+        },
+        {
+          "id": "p076",
+          "kind": "FN",
+          "category": "spacing",
+          "name_a": "Ram Kumar",
+          "name_b": "Ramkumar",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "space dropped on DL"
+        },
+        {
+          "id": "p077",
+          "kind": "FN",
+          "category": "spacing",
+          "name_a": "Sai Ram",
+          "name_b": "Sairam",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "compound given name glued"
+        },
+        {
+          "id": "p093",
+          "kind": "FN",
+          "category": "south_indian",
+          "name_a": "Gopalakrishnan",
+          "name_b": "Gopala Krishnan",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "agglutinative vs split"
+        },
+        {
+          "id": "p094",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "R. Karthik",
+          "name_b": "Karthik Rajesh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "father is Ramesh, not Rajesh"
+        },
+        {
+          "id": "p095",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "M. Vijay",
+          "name_b": "Vijay Mohan",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Manohar vs Mohan"
+        },
+        {
+          "id": "p096",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "S. Priyanka",
+          "name_b": "Priyanka Suresh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Selvaraj vs Suresh"
+        },
+        {
+          "id": "p114",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Meera Joshi",
+          "name_b": "Mira Joshi",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "Meera vs Mira, same woman"
+        },
+        {
+          "id": "p116",
+          "kind": "FN",
+          "category": "compound",
+          "name_a": "Venkat Subramanian",
+          "name_b": "Venkata Subramanian",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "Venkat is a clipped Venkata"
+        },
+        {
+          "id": "p117",
+          "kind": "FN",
+          "category": "compound",
+          "name_a": "Krishna Murthy",
+          "name_b": "Krishnamurthy",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "space vs closed compound"
+        },
+        {
+          "id": "p118",
+          "kind": "FN",
+          "category": "compound",
+          "name_a": "Raja Sekhar",
+          "name_b": "Rajasekhar",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "Telugu compound"
+        },
+        {
+          "id": "p119",
+          "kind": "FN",
+          "category": "compound",
+          "name_a": "Surya Prakash",
+          "name_b": "Suryaprakash",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "closed compound on PAN"
+        },
+        {
+          "id": "p121",
+          "kind": "FN",
+          "category": "compound",
+          "name_a": "Chandra Shekhar",
+          "name_b": "Chandrashekhar",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "shekhar compounding"
+        },
+        {
+          "id": "p122",
+          "kind": "FN",
+          "category": "compound",
+          "name_a": "Nirmal Kumar",
+          "name_b": "Nirmalkumar",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "Kumar glued"
+        },
+        {
+          "id": "p124",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Krishna Murthy",
+          "name_b": "Krishna Moorthy",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "Murthy vs Moorthy"
+        },
+        {
+          "id": "p126",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Mohd. Yusuf",
+          "name_b": "Mohammed Yousuf",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "both abbreviation and ou/u"
+        },
+        {
+          "id": "p131",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Geeta Devi",
+          "name_b": "Gita Devi",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "ee vs i"
+        },
+        {
+          "id": "p133",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Iqbal Hussain",
+          "name_b": "Ikbal Husain",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "q/k and ss/s"
+        },
+        {
+          "id": "p137",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Dutta",
+          "name_b": "Suman Dutta",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "same initial trap"
+        },
+        {
+          "id": "p138",
+          "kind": "FN",
+          "category": "spacing",
+          "name_a": "Prabhu Deva",
+          "name_b": "Prabhudeva",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "space in stage-style name"
+        },
+        {
+          "id": "p139",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Jagdish Prasad",
+          "name_b": "Jagdeesh Prasad",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "i vs ee"
+        },
+        {
+          "id": "p141",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Navin Rao",
+          "name_b": "Naveen Rao",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "i vs ee"
+        },
+        {
+          "id": "p143",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Fathima",
+          "name_b": "Fatima",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "th vs t"
+        },
+        {
+          "id": "p144",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Fathima Noor",
+          "name_b": "Fatima Nur",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.0,
+          "note": "Noor/Nur as well"
+        },
+        {
+          "id": "p147",
+          "kind": "FN",
+          "category": "transliteration",
+          "name_a": "Shashi Kapoor",
+          "name_b": "Sashi Kapoor",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5,
+          "note": "sh vs s"
+        },
+        {
+          "id": "p150",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "R.D. Burman",
+          "name_b": "Rahul Dutta Burman",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "D is Dev, not Dutta"
+        }
+      ]
+    },
+    {
+      "algorithm": "jaro_winkler",
+      "description": "Jaro-Winkler on honorific-stripped, sorted tokens",
+      "threshold": 0.88,
+      "precision": 0.656,
+      "recall": 0.8723,
+      "f0.5": 0.6902,
+      "f1": 0.7489,
+      "tp": 82,
+      "fp": 43,
+      "fn": 12,
+      "tn": 13,
+      "by_category": {
+        "compound": {
+          "precision": 0.8571,
+          "recall": 0.8571,
+          "f0.5": 0.8571,
+          "tp": 6,
+          "fp": 1,
+          "fn": 1,
+          "tn": 0
+        },
+        "honorifics": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f0.5": 0.7895,
+          "tp": 9,
+          "fp": 3,
+          "fn": 0,
+          "tn": 0
+        },
+        "initials": {
+          "precision": 0.6364,
+          "recall": 0.5,
+          "f0.5": 0.6034,
+          "tp": 7,
+          "fp": 4,
+          "fn": 7,
+          "tn": 4
+        },
+        "middle_relation": {
+          "precision": 0.8571,
+          "recall": 0.8571,
+          "f0.5": 0.8571,
+          "tp": 12,
+          "fp": 2,
+          "fn": 2,
+          "tn": 3
+        },
+        "name_order": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f0.5": 0.7895,
+          "tp": 9,
+          "fp": 3,
+          "fn": 0,
+          "tn": 1
+        },
+        "near_duplicate": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f0.5": 0.0,
+          "tp": 0,
+          "fp": 22,
+          "fn": 0,
+          "tn": 4
+        },
+        "south_indian": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "f0.5": 0.75,
+          "tp": 6,
+          "fp": 2,
+          "fn": 2,
+          "tn": 1
+        },
+        "spacing": {
+          "precision": 0.8182,
+          "recall": 1.0,
+          "f0.5": 0.8491,
+          "tp": 9,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0
+        },
+        "transliteration": {
+          "precision": 0.8571,
+          "recall": 1.0,
+          "f0.5": 0.8824,
+          "tp": 24,
+          "fp": 4,
+          "fn": 0,
+          "tn": 0
+        }
+      },
+      "errors": [
+        {
+          "id": "p002",
+          "kind": "FN",
+          "category": "initials",
+          "name_a": "R.K. Sharma",
+          "name_b": "Rajesh Kumar Sharma",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.7474,
+          "note": "two initials, middle filled in"
+        },
+        {
+          "id": "p004",
+          "kind": "FN",
+          "category": "initials",
+          "name_a": "P.N. Rao",
+          "name_b": "Prabhakar Narayan Rao",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5907,
+          "note": "Andhra-style initials"
+        },
+        {
+          "id": "p005",
+          "kind": "FN",
+          "category": "initials",
+          "name_a": "A. Patel",
+          "name_b": "Amit Patel",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.825,
+          "note": "Gujarati given name expanded"
+        },
+        {
+          "id": "p006",
+          "kind": "FN",
+          "category": "initials",
+          "name_a": "K. Venkatesh",
+          "name_b": "Krishna Venkatesh",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.7675,
+          "note": "K. could be Krishna or Kumar"
+        },
+        {
+          "id": "p010",
+          "kind": "FN",
+          "category": "initials",
+          "name_a": "J. Singh",
+          "name_b": "Jaspreet Singh",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.5462,
+          "note": "Punjabi given name"
+        },
+        {
+          "id": "p011",
+          "kind": "FN",
+          "category": "initials",
+          "name_a": "T.K. Nair",
+          "name_b": "Thankamani Krishnan Nair",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.7318,
+          "note": "Kerala long form vs DL initials"
+        },
+        {
+          "id": "p012",
+          "kind": "FN",
+          "category": "initials",
+          "name_a": "B. Ghosh",
+          "name_b": "Bikash Ghosh",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.7464,
+          "note": "Bengali given name"
+        },
+        {
+          "id": "p013",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Kumar",
+          "name_b": "Sanjay Kumar",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9167,
+          "note": "same initial + Kumar, different person"
+        },
+        {
+          "id": "p017",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "M. Iyer",
+          "name_b": "Meenakshi Iyer",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8857,
+          "note": "M. S. Iyer vs a different M. Iyer"
+        },
+        {
+          "id": "p027",
+          "kind": "FP",
+          "category": "name_order",
+          "name_a": "Kumar Suresh",
+          "name_b": "Suresh Kumaran",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9714,
+          "note": "Kumaran is not Kumar; swap matcher can overreach"
+        },
+        {
+          "id": "p028",
+          "kind": "FP",
+          "category": "name_order",
+          "name_a": "Sharma Anjali",
+          "name_b": "Anjali Verma",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8905,
+          "note": "same given name, different family"
+        },
+        {
+          "id": "p029",
+          "kind": "FP",
+          "category": "name_order",
+          "name_a": "Reddy Chaitanya",
+          "name_b": "Chaitanya Naidu",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8933,
+          "note": "different caste/family name"
+        },
+        {
+          "id": "p045",
+          "kind": "FP",
+          "category": "transliteration",
+          "name_a": "Mohammed Irfan",
+          "name_b": "Mohammed Imran",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9692,
+          "note": "Irfan vs Imran \u2014 close, different people"
+        },
+        {
+          "id": "p046",
+          "kind": "FP",
+          "category": "transliteration",
+          "name_a": "Kavitha Reddy",
+          "name_b": "Kavitha Rani",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8885,
+          "note": "same given spelling, different second name"
+        },
+        {
+          "id": "p047",
+          "kind": "FP",
+          "category": "transliteration",
+          "name_a": "Yusuf Sheikh",
+          "name_b": "Yusuf Shah",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9232,
+          "note": "Sheikh vs Shah"
+        },
+        {
+          "id": "p048",
+          "kind": "FP",
+          "category": "transliteration",
+          "name_a": "Bharat Singh",
+          "name_b": "Bharat Sinha",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9667,
+          "note": "Singh vs Sinha"
+        },
+        {
+          "id": "p050",
+          "kind": "FN",
+          "category": "middle_relation",
+          "name_a": "Priya Sharma",
+          "name_b": "Priya w/o Rajesh Sharma",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.8763,
+          "note": "husband's name appears on one doc only"
+        },
+        {
+          "id": "p054",
+          "kind": "FN",
+          "category": "middle_relation",
+          "name_a": "Rohit",
+          "name_b": "Rohit Kumar Gupta",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.8667,
+          "note": "single given name vs full three-part"
+        },
+        {
+          "id": "p062",
+          "kind": "FP",
+          "category": "middle_relation",
+          "name_a": "Ananya Srinivasan",
+          "name_b": "Srinivasan Ananya",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "could be father; labeled as different people here"
+        },
+        {
+          "id": "p063",
+          "kind": "FP",
+          "category": "middle_relation",
+          "name_a": "Rohit Kumar Gupta",
+          "name_b": "Rohit Kumar Mishra",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8842,
+          "note": "same first+middle, different surname"
+        },
+        {
+          "id": "p073",
+          "kind": "FP",
+          "category": "honorifics",
+          "name_a": "Kumari Priya Nair",
+          "name_b": "Priya Kumari",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8982,
+          "note": "honorific Kumari vs surname Kumari \u2014 different people"
+        },
+        {
+          "id": "p074",
+          "kind": "FP",
+          "category": "honorifics",
+          "name_a": "Dr. A. P. Singh",
+          "name_b": "Dr. A. K. Singh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9407,
+          "note": "same title, different middle initial"
+        },
+        {
+          "id": "p075",
+          "kind": "FP",
+          "category": "honorifics",
+          "name_a": "Shri Ram Prasad",
+          "name_b": "Shri Ram Pratap",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9111,
+          "note": "Prasad vs Pratap"
+        },
+        {
+          "id": "p084",
+          "kind": "FP",
+          "category": "spacing",
+          "name_a": "Ram Kumar",
+          "name_b": "Ram Kumari",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.98,
+          "note": "Kumar vs Kumari is not a spacing issue"
+        },
+        {
+          "id": "p085",
+          "kind": "FP",
+          "category": "spacing",
+          "name_a": "Sai Ram",
+          "name_b": "Sai Rahman",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9333,
+          "note": "glued-name matcher should not eat extra syllables"
+        },
+        {
+          "id": "p087",
+          "kind": "FN",
+          "category": "south_indian",
+          "name_a": "M. Vijay",
+          "name_b": "Vijay Manohar",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.6667,
+          "note": "M for Manohar"
+        },
+        {
+          "id": "p091",
+          "kind": "FN",
+          "category": "south_indian",
+          "name_a": "C.N. Ashok",
+          "name_b": "Ashok Chellappan Nair",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.8635,
+          "note": "two-letter initial unpack"
+        },
+        {
+          "id": "p094",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "R. Karthik",
+          "name_b": "Karthik Rajesh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9286,
+          "note": "father is Ramesh, not Rajesh"
+        },
+        {
+          "id": "p096",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "S. Priyanka",
+          "name_b": "Priyanka Suresh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9333,
+          "note": "Selvaraj vs Suresh"
+        },
+        {
+          "id": "p098",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Neha Gupta",
+          "name_b": "Nisha Gupta",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9436,
+          "note": "Neha/Nisha, very close JW"
+        },
+        {
+          "id": "p099",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Ramesh Sharma",
+          "name_b": "Rajesh Sharma",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.959,
+          "note": "classic sibling pair"
+        },
+        {
+          "id": "p100",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Pooja Singh",
+          "name_b": "Poonam Singh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8824,
+          "note": "shared prefix Poo-"
+        },
+        {
+          "id": "p101",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Amit Verma",
+          "name_b": "Sumit Verma",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9061,
+          "note": "Amit/Sumit"
+        },
+        {
+          "id": "p103",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Rahul Sharma",
+          "name_b": "Rahul Verma",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8803,
+          "note": "identical given name, different family"
+        },
+        {
+          "id": "p104",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Anita Desai",
+          "name_b": "Anita Deshmukh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.8922,
+          "note": "Desai vs Deshmukh"
+        },
+        {
+          "id": "p105",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Vivek Joshi",
+          "name_b": "Vikas Joshi",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9273,
+          "note": "Vivek vs Vikas"
+        },
+        {
+          "id": "p106",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Sneha Kulkarni",
+          "name_b": "Neha Kulkarni",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9857,
+          "note": "Sneha vs Neha"
+        },
+        {
+          "id": "p107",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Arun Nair",
+          "name_b": "Varun Nair",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.963,
+          "note": "leading V"
+        },
+        {
+          "id": "p108",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Manish Agarwal",
+          "name_b": "Manisha Agarwal",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9867,
+          "note": "gendered near-duplicate, not the same person"
+        },
+        {
+          "id": "p110",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Hari",
+          "name_b": "Harish",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9333,
+          "note": "Hari vs Harish"
+        },
+        {
+          "id": "p112",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Ananya Iyer",
+          "name_b": "Ananya Iyengar",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9571,
+          "note": "Iyer vs Iyengar"
+        },
+        {
+          "id": "p113",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Kabir Khan",
+          "name_b": "Kadir Khan",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9467,
+          "note": "b vs d"
+        },
+        {
+          "id": "p115",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Meera Joshi",
+          "name_b": "Neera Joshi",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9636,
+          "note": "Meera vs Neera"
+        },
+        {
+          "id": "p120",
+          "kind": "FN",
+          "category": "compound",
+          "name_a": "Lakshmi Narasimhan",
+          "name_b": "L. Narasimhan",
+          "gold": "match",
+          "predicted": "non-match",
+          "score": 0.7875,
+          "note": "first compound reduced to L"
+        },
+        {
+          "id": "p123",
+          "kind": "FP",
+          "category": "compound",
+          "name_a": "Venkat Subramanian",
+          "name_b": "Venkat Sundaram",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9156,
+          "note": "Subramanian vs Sundaram"
+        },
+        {
+          "id": "p132",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Geeta Devi",
+          "name_b": "Geeta Devidayal",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9286,
+          "note": "Devi vs a longer surname"
+        },
+        {
+          "id": "p134",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Iqbal Hussain",
+          "name_b": "Iqbal Hassan",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9285,
+          "note": "Hussain vs Hassan"
+        },
+        {
+          "id": "p135",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Tanya Bhatt",
+          "name_b": "Tanya Bhattacharya",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9176,
+          "note": "Bhatt is not a shortening of Bhattacharya here"
+        },
+        {
+          "id": "p137",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Dutta",
+          "name_b": "Suman Dutta",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9273,
+          "note": "same initial trap"
+        },
+        {
+          "id": "p140",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Jagdish Prasad",
+          "name_b": "Jagdish Pradhan",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9437,
+          "note": "Prasad vs Pradhan"
+        },
+        {
+          "id": "p142",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Navin Rao",
+          "name_b": "Navin Rau",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9556,
+          "note": "Rao vs Rau"
+        },
+        {
+          "id": "p145",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Fathima Noor",
+          "name_b": "Fathima Noori",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9846,
+          "note": "Noor vs Noori"
+        },
+        {
+          "id": "p146",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Oommen Chandy",
+          "name_b": "Omen Chandy",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9692,
+          "note": "looks like a spelling variant, is not this person"
+        },
+        {
+          "id": "p148",
+          "kind": "FP",
+          "category": "near_duplicate",
+          "name_a": "Shashi Kapoor",
+          "name_b": "Shashi Kapor",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9846,
+          "note": "Kapoor vs Kapor"
+        },
+        {
+          "id": "p150",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "R.D. Burman",
+          "name_b": "Rahul Dutta Burman",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 0.9111,
+          "note": "D is Dev, not Dutta"
+        }
+      ]
+    },
+    {
+      "algorithm": "phonetic",
+      "description": "Indic phonetic fold, then token Dice",
+      "threshold": 0.67,
+      "precision": 0.8868,
+      "recall": 1.0,
+      "f0.5": 0.9073,
+      "f1": 0.94,
+      "tp": 94,
+      "fp": 12,
+      "fn": 0,
+      "tn": 44,
+      "by_category": {
+        "compound": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1
+        },
+        "honorifics": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3
+        },
+        "initials": {
+          "precision": 0.6364,
+          "recall": 1.0,
+          "f0.5": 0.6863,
+          "tp": 14,
+          "fp": 8,
+          "fn": 0,
+          "tn": 0
+        },
+        "middle_relation": {
+          "precision": 0.9333,
+          "recall": 1.0,
+          "f0.5": 0.9459,
+          "tp": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 4
+        },
+        "name_order": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        },
+        "near_duplicate": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f0.5": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 26
+        },
+        "south_indian": {
+          "precision": 0.7273,
+          "recall": 1.0,
+          "f0.5": 0.7692,
+          "tp": 8,
+          "fp": 3,
+          "fn": 0,
+          "tn": 0
+        },
+        "spacing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2
+        },
+        "transliteration": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 24,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        }
+      },
+      "errors": [
+        {
+          "id": "p013",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Kumar",
+          "name_b": "Sanjay Kumar",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "same initial + Kumar, different person"
+        },
+        {
+          "id": "p014",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "A. Patel",
+          "name_b": "Anil Patel",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Amit is not Anil; initial is not identity"
+        },
+        {
+          "id": "p015",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "R. Sharma",
+          "name_b": "Rohit Sharma",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "R. Sharma is also Rajesh, Ramesh, Rita..."
+        },
+        {
+          "id": "p016",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "K. Venkatesh",
+          "name_b": "Kiran Venkatesh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "K. was Krishna on the other pair"
+        },
+        {
+          "id": "p017",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "M. Iyer",
+          "name_b": "Meenakshi Iyer",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "M. S. Iyer vs a different M. Iyer"
+        },
+        {
+          "id": "p018",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "P. Rao",
+          "name_b": "Priya Rao",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "P.N. Rao is not Priya Rao"
+        },
+        {
+          "id": "p062",
+          "kind": "FP",
+          "category": "middle_relation",
+          "name_a": "Ananya Srinivasan",
+          "name_b": "Srinivasan Ananya",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "could be father; labeled as different people here"
+        },
+        {
+          "id": "p094",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "R. Karthik",
+          "name_b": "Karthik Rajesh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "father is Ramesh, not Rajesh"
+        },
+        {
+          "id": "p095",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "M. Vijay",
+          "name_b": "Vijay Mohan",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Manohar vs Mohan"
+        },
+        {
+          "id": "p096",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "S. Priyanka",
+          "name_b": "Priyanka Suresh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Selvaraj vs Suresh"
+        },
+        {
+          "id": "p137",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Dutta",
+          "name_b": "Suman Dutta",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "same initial trap"
+        },
+        {
+          "id": "p150",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "R.D. Burman",
+          "name_b": "Rahul Dutta Burman",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "D is Dev, not Dutta"
+        }
+      ]
+    },
+    {
+      "algorithm": "hybrid",
+      "description": "Token backbone + phonetic rescue + JW near-duplicate veto",
+      "threshold": 0.72,
+      "precision": 0.8868,
+      "recall": 1.0,
+      "f0.5": 0.9073,
+      "f1": 0.94,
+      "tp": 94,
+      "fp": 12,
+      "fn": 0,
+      "tn": 44,
+      "by_category": {
+        "compound": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1
+        },
+        "honorifics": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3
+        },
+        "initials": {
+          "precision": 0.6364,
+          "recall": 1.0,
+          "f0.5": 0.6863,
+          "tp": 14,
+          "fp": 8,
+          "fn": 0,
+          "tn": 0
+        },
+        "middle_relation": {
+          "precision": 0.9333,
+          "recall": 1.0,
+          "f0.5": 0.9459,
+          "tp": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 4
+        },
+        "name_order": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        },
+        "near_duplicate": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f0.5": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 26
+        },
+        "south_indian": {
+          "precision": 0.7273,
+          "recall": 1.0,
+          "f0.5": 0.7692,
+          "tp": 8,
+          "fp": 3,
+          "fn": 0,
+          "tn": 0
+        },
+        "spacing": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2
+        },
+        "transliteration": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f0.5": 1.0,
+          "tp": 24,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4
+        }
+      },
+      "errors": [
+        {
+          "id": "p013",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Kumar",
+          "name_b": "Sanjay Kumar",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "same initial + Kumar, different person"
+        },
+        {
+          "id": "p014",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "A. Patel",
+          "name_b": "Anil Patel",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Amit is not Anil; initial is not identity"
+        },
+        {
+          "id": "p015",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "R. Sharma",
+          "name_b": "Rohit Sharma",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "R. Sharma is also Rajesh, Ramesh, Rita..."
+        },
+        {
+          "id": "p016",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "K. Venkatesh",
+          "name_b": "Kiran Venkatesh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "K. was Krishna on the other pair"
+        },
+        {
+          "id": "p017",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "M. Iyer",
+          "name_b": "Meenakshi Iyer",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "M. S. Iyer vs a different M. Iyer"
+        },
+        {
+          "id": "p018",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "P. Rao",
+          "name_b": "Priya Rao",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "P.N. Rao is not Priya Rao"
+        },
+        {
+          "id": "p062",
+          "kind": "FP",
+          "category": "middle_relation",
+          "name_a": "Ananya Srinivasan",
+          "name_b": "Srinivasan Ananya",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "could be father; labeled as different people here"
+        },
+        {
+          "id": "p094",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "R. Karthik",
+          "name_b": "Karthik Rajesh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "father is Ramesh, not Rajesh"
+        },
+        {
+          "id": "p095",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "M. Vijay",
+          "name_b": "Vijay Mohan",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Manohar vs Mohan"
+        },
+        {
+          "id": "p096",
+          "kind": "FP",
+          "category": "south_indian",
+          "name_a": "S. Priyanka",
+          "name_b": "Priyanka Suresh",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "Selvaraj vs Suresh"
+        },
+        {
+          "id": "p137",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "S. Dutta",
+          "name_b": "Suman Dutta",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "same initial trap"
+        },
+        {
+          "id": "p150",
+          "kind": "FP",
+          "category": "initials",
+          "name_a": "R.D. Burman",
+          "name_b": "Rahul Dutta Burman",
+          "gold": "non-match",
+          "predicted": "match",
+          "score": 1.0,
+          "note": "D is Dev, not Dutta"
+        }
+      ]
+    }
+  ],
+  "threshold_sweeps": {
+    "token_overlap": [
+      {
+        "threshold": 0.5,
+        "precision": 0.5985,
+        "recall": 0.8404,
+        "f0.5": 0.635,
+        "fp": 53,
+        "fn": 15
+      },
+      {
+        "threshold": 0.55,
+        "precision": 0.8205,
+        "recall": 0.6809,
+        "f0.5": 0.7882,
+        "fp": 14,
+        "fn": 30
+      },
+      {
+        "threshold": 0.6,
+        "precision": 0.8205,
+        "recall": 0.6809,
+        "f0.5": 0.7882,
+        "fp": 14,
+        "fn": 30
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.8205,
+        "recall": 0.6809,
+        "f0.5": 0.7882,
+        "fp": 14,
+        "fn": 30
+      },
+      {
+        "threshold": 0.7,
+        "precision": 0.8421,
+        "recall": 0.6809,
+        "f0.5": 0.804,
+        "fp": 12,
+        "fn": 30
+      },
+      {
+        "threshold": 0.75,
+        "precision": 0.8421,
+        "recall": 0.6809,
+        "f0.5": 0.804,
+        "fp": 12,
+        "fn": 30
+      },
+      {
+        "threshold": 0.8,
+        "precision": 0.8421,
+        "recall": 0.6809,
+        "f0.5": 0.804,
+        "fp": 12,
+        "fn": 30
+      },
+      {
+        "threshold": 0.85,
+        "precision": 0.8182,
+        "recall": 0.5745,
+        "f0.5": 0.7542,
+        "fp": 12,
+        "fn": 40
+      },
+      {
+        "threshold": 0.9,
+        "precision": 0.8182,
+        "recall": 0.5745,
+        "f0.5": 0.7542,
+        "fp": 12,
+        "fn": 40
+      },
+      {
+        "threshold": 0.95,
+        "precision": 0.8182,
+        "recall": 0.5745,
+        "f0.5": 0.7542,
+        "fp": 12,
+        "fn": 40
+      }
+    ],
+    "jaro_winkler": [
+      {
+        "threshold": 0.5,
+        "precision": 0.6267,
+        "recall": 1.0,
+        "f0.5": 0.6772,
+        "fp": 56,
+        "fn": 0
+      },
+      {
+        "threshold": 0.55,
+        "precision": 0.6242,
+        "recall": 0.9894,
+        "f0.5": 0.6739,
+        "fp": 56,
+        "fn": 1
+      },
+      {
+        "threshold": 0.6,
+        "precision": 0.6216,
+        "recall": 0.9787,
+        "f0.5": 0.6706,
+        "fp": 56,
+        "fn": 2
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.6216,
+        "recall": 0.9787,
+        "f0.5": 0.6706,
+        "fp": 56,
+        "fn": 2
+      },
+      {
+        "threshold": 0.7,
+        "precision": 0.619,
+        "recall": 0.9681,
+        "f0.5": 0.6672,
+        "fp": 56,
+        "fn": 3
+      },
+      {
+        "threshold": 0.75,
+        "precision": 0.6154,
+        "recall": 0.9362,
+        "f0.5": 0.6607,
+        "fp": 55,
+        "fn": 6
+      },
+      {
+        "threshold": 0.8,
+        "precision": 0.6324,
+        "recall": 0.9149,
+        "f0.5": 0.674,
+        "fp": 50,
+        "fn": 8
+      },
+      {
+        "threshold": 0.85,
+        "precision": 0.6538,
+        "recall": 0.9043,
+        "f0.5": 0.6922,
+        "fp": 45,
+        "fn": 9
+      },
+      {
+        "threshold": 0.9,
+        "precision": 0.6937,
+        "recall": 0.8191,
+        "f0.5": 0.7156,
+        "fp": 34,
+        "fn": 17
+      },
+      {
+        "threshold": 0.95,
+        "precision": 0.7794,
+        "recall": 0.5638,
+        "f0.5": 0.724,
+        "fp": 15,
+        "fn": 41
+      }
+    ],
+    "phonetic": [
+      {
+        "threshold": 0.5,
+        "precision": 0.6395,
+        "recall": 1.0,
+        "f0.5": 0.6891,
+        "fp": 53,
+        "fn": 0
+      },
+      {
+        "threshold": 0.55,
+        "precision": 0.8704,
+        "recall": 1.0,
+        "f0.5": 0.8935,
+        "fp": 14,
+        "fn": 0
+      },
+      {
+        "threshold": 0.6,
+        "precision": 0.8704,
+        "recall": 1.0,
+        "f0.5": 0.8935,
+        "fp": 14,
+        "fn": 0
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.8704,
+        "recall": 1.0,
+        "f0.5": 0.8935,
+        "fp": 14,
+        "fn": 0
+      },
+      {
+        "threshold": 0.7,
+        "precision": 0.8868,
+        "recall": 1.0,
+        "f0.5": 0.9073,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "threshold": 0.75,
+        "precision": 0.8868,
+        "recall": 1.0,
+        "f0.5": 0.9073,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "threshold": 0.8,
+        "precision": 0.8868,
+        "recall": 1.0,
+        "f0.5": 0.9073,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "threshold": 0.85,
+        "precision": 0.8763,
+        "recall": 0.9043,
+        "f0.5": 0.8817,
+        "fp": 12,
+        "fn": 9
+      },
+      {
+        "threshold": 0.9,
+        "precision": 0.8763,
+        "recall": 0.9043,
+        "f0.5": 0.8817,
+        "fp": 12,
+        "fn": 9
+      },
+      {
+        "threshold": 0.95,
+        "precision": 0.8763,
+        "recall": 0.9043,
+        "f0.5": 0.8817,
+        "fp": 12,
+        "fn": 9
+      }
+    ],
+    "hybrid": [
+      {
+        "threshold": 0.5,
+        "precision": 0.6395,
+        "recall": 1.0,
+        "f0.5": 0.6891,
+        "fp": 53,
+        "fn": 0
+      },
+      {
+        "threshold": 0.55,
+        "precision": 0.8704,
+        "recall": 1.0,
+        "f0.5": 0.8935,
+        "fp": 14,
+        "fn": 0
+      },
+      {
+        "threshold": 0.6,
+        "precision": 0.8704,
+        "recall": 1.0,
+        "f0.5": 0.8935,
+        "fp": 14,
+        "fn": 0
+      },
+      {
+        "threshold": 0.65,
+        "precision": 0.8704,
+        "recall": 1.0,
+        "f0.5": 0.8935,
+        "fp": 14,
+        "fn": 0
+      },
+      {
+        "threshold": 0.7,
+        "precision": 0.8868,
+        "recall": 1.0,
+        "f0.5": 0.9073,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "threshold": 0.75,
+        "precision": 0.8868,
+        "recall": 1.0,
+        "f0.5": 0.9073,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "threshold": 0.8,
+        "precision": 0.8868,
+        "recall": 1.0,
+        "f0.5": 0.9073,
+        "fp": 12,
+        "fn": 0
+      },
+      {
+        "threshold": 0.85,
+        "precision": 0.8763,
+        "recall": 0.9043,
+        "f0.5": 0.8817,
+        "fp": 12,
+        "fn": 9
+      },
+      {
+        "threshold": 0.9,
+        "precision": 0.8763,
+        "recall": 0.9043,
+        "f0.5": 0.8817,
+        "fp": 12,
+        "fn": 9
+      },
+      {
+        "threshold": 0.95,
+        "precision": 0.8763,
+        "recall": 0.9043,
+        "f0.5": 0.8817,
+        "fp": 12,
+        "fn": 9
+      }
+    ]
+  }
+}

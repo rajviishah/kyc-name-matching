@@ -1,0 +1,2 @@
+# Python 3.10+ from a clean machine is enough.
+# No third-party packages. Jaro-Winkler and the phonetic fold are in src/.
