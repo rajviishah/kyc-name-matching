@@ -126,3 +126,20 @@ def normalize_tokens(name: str) -> list[str]:
 
 def normalize_string(name: str) -> str:
     return " ".join(normalize_tokens(name))
+
+
+def parse_name_parts(name: str) -> tuple[str, str, str]:
+    """Split a raw extracted name into (first, middle, last).
+
+    After honorifics / s/o / w/o are gone: one token is given-only, two
+    tokens are given + surname, three or more are given + middle(s) + surname.
+    This is the same assignment a KYC ops person uses on a PAN line.
+    """
+    tokens = normalize_tokens(name)
+    if not tokens:
+        return "", "", ""
+    if len(tokens) == 1:
+        return tokens[0], "", ""
+    if len(tokens) == 2:
+        return tokens[0], "", tokens[1]
+    return tokens[0], " ".join(tokens[1:-1]), tokens[-1]

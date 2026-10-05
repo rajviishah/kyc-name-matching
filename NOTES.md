@@ -1,119 +1,75 @@
 # Name matching across Indian KYC documents
 
-150 hand-labeled pairs. Four scorers. No third-party packages.
+Two scorers. 237 hand-labeled pairs, about **30% match / 70% non-match**. No third-party packages.
 
 ## How to run (clean checkout, Python 3.10+ only)
 
-Windows (this machine):
+Windows:
 
 ```
 py -3 tests/test_matchers.py
 py -3 run_evaluation.py
 ```
 
-macOS / Linux, or if `python` already points at 3.10+:
+macOS / Linux, or if `python` is already 3.10+:
 
 ```
 python tests/test_matchers.py
 python run_evaluation.py
 ```
 
-There is nothing to pip install. `requirements.txt` is empty on purpose.
+Nothing to pip install.
 
-What the runner does, in order:
-
-1. Writes `data/name_pairs.csv` from the labeled list in `data/pairs.py`
-2. Scores every pair with all four matchers
-3. Prints the comparison table
-4. Writes `results/evaluation.json` (full dump, including a threshold sweep) and `results/errors.csv` (every FP and FN, so you do not have to trust a single number)
-
-The dataset is the Python list, not the CSV. Re-running the script regenerates the CSV; you do not need a separate generate step.
+The runner writes `data/name_pairs.csv` from `data/pairs.py`, scores both matchers, and writes `results/evaluation.json` plus `results/errors.csv`. The Python list is the source of truth, not the CSV.
 
 ## Dataset
 
-150 pairs, 94 match / 56 non-match. I wrote them by hand. I did not sample a name corpus and then guess labels — the exercise said this is the part they care about most, so I spent the time here.
+237 pairs, **70 match (29.5%) / 167 non-match (70.5%)**. Every row has first / middle / last on each side (empty if that part is missing).
 
-What I was trying to copy from real POI/POA:
+I relabeled **initial-only expansions to non-match**. `S. Kumar` vs `Suresh Kumar` is not something a KYC desk should auto-approve from names alone — `S.` is also Sanjay. Same for south-Indian father initials (`R. Karthik` vs `Karthik Ramesh`).
 
-- PAN / DL initials vs passport / Aadhaar expansion (`S. Kumar` / `Suresh Kumar`)
-- Surname-first form fields vs given-name-first Aadhaar
-- Mohammed / Mohammad / Mohd. / Md., Laxmi / Lakshmi, Kavita / Kavitha
-- `s/o`, `w/o`, extra middle names, Begum dropped on one card
-- Shri / Smt. / Kumari / Ji / Dr.
-- South Indian patronymic-as-initial (`R. Karthik` / `Karthik Ramesh`)
-- Glued compounds (`Ramkumar`, `Gopalakrishnan`)
-- Negatives that should hurt: siblings (`Ramesh`/`Rajesh`), one-letter edits (`Anil`/`Sunil`), shared surname + different person, and the initial trap (`S. Kumar` / `Sanjay Kumar`)
+True matches are the cases a reviewer would actually stamp: honorifics stripped, surname-first vs given-first **same two tokens**, extra/missing middle, `s/o` / `w/o` with the same first+last, case/spacing. I left a handful of transliteration and glued-name **trues** in the set on purpose so eval shows them as review-queue FNs, not as auto-approve.
 
-I kept the split slightly match-heavy because that is what a KYC queue looks like (same person, messy strings). The negatives are the ones I actually worry about shipping.
+Non-matches are the load: siblings, same-surname crowds, initial collisions, wife vs husband, father vs child token swaps, Kumar vs Kumari, Ram vs Ramanathan.
 
 ## Metrics
 
-Primary: **F0.5** (precision weighted). Also reporting precision, recall, F1, and raw TP/FP/FN/TN.
+Primary: **F0.5**. A false positive is two different people auto-approved (fraud). A false negative is same person sent to a reviewer (ops cost). They are not equal.
 
-A false positive here is "the system decided these two docs belong to the same person and they do not." In identity verification that is the fraud / wrong-account case. A false negative is "same person, sent to a reviewer." That costs ops time. They are not equal, so I am not using F1 as the thing I optimize.
+## Algorithms
 
-I am not using accuracy. 94/150 are matches; a dummy "always match" policy would look less stupid than it is.
+1. **token_overlap** — cleaned tokens, order ignored, initials may attach to a given name. This is the ops eyeball. It is also why it false-positives on `S. Kumar` / `Suresh Kumar` once that pair is labeled honest.
+2. **structured_fields** — first / middle / last. Last and first have to agree; missing middle is fine; a 2-token swap is treated as the same two parts. Initial + surname is **not** enough to auto-approve. Middle-initial clash (`A.P.` vs `A.K.`) is a reject.
 
-Thresholds were picked from the sweep in `results/evaluation.json`, not from a gut 0.8.
+Jaro-Winkler, phonetic fold, and hybrid were removed. Character similarity matches `Anil`/`Sunil`. Phonetic matching was fitting a hand-built spelling table. Neither is how this product should auto-approve KYC.
 
 ## Results
 
-From `py -3 run_evaluation.py` on this repo:
+From `py -3 run_evaluation.py`:
 
 ```
-algorithm         thr      P      R   F0.5     F1   TP  FP  FN  TN
-token_overlap    0.67  0.842  0.681  0.804  0.753   64  12  30  44
-jaro_winkler     0.88  0.656  0.872  0.690  0.749   82  43  12  13
-phonetic         0.67  0.887  1.000  0.907  0.940   94  12   0  44
-hybrid           0.72  0.887  1.000  0.907  0.940   94  12   0  44
+algorithm            thr      P      R   F0.5     F1   TP  FP  FN   TN
+token_overlap       0.67  0.462  0.771  0.502  0.578   54  63  16  104
+structured_fields   0.75  0.897  0.743  0.861  0.812   52   6  18  161
 ```
 
-Jaro-Winkler is the useful negative result. 22 of its 43 false positives are in the near-duplicate bucket alone (`Anil`/`Sunil`, `Neha`/`Nisha`, `Ramesh`/`Rajesh`, `Manish`/`Manisha`). Character similarity is the wrong primitive once two Indian names share a surname.
+Token overlap's 63 FPs are mostly initials (26) plus south-Indian patronymic initials and relation/order swaps. That is the algorithm doing what it was told: `S.` overlaps `Suresh`.
 
-Token overlap is what an ops person is doing in their head, and it is clean on those near-duplicates (0 FP there). It just cannot see Laxmi/Lakshmi or Ramkumar.
-
-Phonetic is the one that actually moves F0.5. Hybrid is phonetic plus a couple of vetoes for "same surname, different given name" and "surname off by a letter." On *this* set the vetoes did not change the counts. I would still ship the vetoes.
-
-Honest caveat: phonetic recall of 1.0 is on a set I wrote and then iterated the substitution table against. I would expect that number to drop on a held-out file. The 12 false positives are the more interesting figure — they are almost all the same failure mode.
+Structured fields is the one I would put behind auto-approve on this set: **6 FP**. Those leftover FPs are the cases names cannot settle — two-token swaps that are father vs child (`Ananya Srinivasan` / `Srinivasan Ananya`), extra `Singh` as middle, honorific `Kumari` vs surname `Kumari`. FNs are transliteration and glued compounds (`Ram Kumar` / `Ramkumar`, `Lakshmi` / `Laxmi`) — I would send those to review, not stretch the scorer.
 
 ## Recommendation
 
-Ship the **hybrid**, with one production gate that this binary eval cannot show:
+Ship **structured_fields** for auto-approve. Keep **token_overlap** next to it as a comparison / review-queue signal (high overlap, structured below threshold → human looks, preferably with DOB).
 
-1. Auto-approve when hybrid says match *and* the given-name evidence is a full token (or a phonetic full token), not an initial.
-2. Everything that only agrees because `S.` can expand to both Suresh and Sanjay goes to a reviewer, ideally with DOB / last-4 of the ID as a second signal.
-3. Do not ship Jaro-Winkler as a matcher. Maybe as a debug feature.
-
-If I am only allowed one of the three standalone algorithms: phonetic.
-
-"It depends" only in this sense: if the product promise is "never bother a reviewer on PAN-initial vs Aadhaar-full-name," you have to accept the `S. Kumar` / `Sanjay Kumar` false positives. I would not accept them. I would spend the reviewer's time.
-
-## Edge case I am happiest about
-
-`Anil Kumar` vs `Sunil Kumar`.
-
-Jaro-Winkler scores this as a match (shared `Kumar`, one-letter first name). Token overlap does not, because `Anil` is not `Sunil`. Hybrid keeps it as a non-match. Same story with `Ram` vs `Ramanathan` (prefix, not a token) and `Manish Agarwal` vs `Manisha Agarwal` (I originally broke this by collapsing the `aa` in the glued form — that one I am glad I caught).
-
-The case I am *not* happy about, and every matcher I wrote fails: `S. Kumar` vs `Sanjay Kumar` labeled non-match, while `S. Kumar` vs `Suresh Kumar` is a match. There is no string algorithm that can tell those apart. That is 8 of the 12 remaining false positives. The other 3 are the south-Indian version of the same thing (`R. Karthik` / `Karthik Rajesh` — Ramesh vs Rajesh). Last one is `Ananya Srinivasan` / `Srinivasan Ananya`, which I labeled as father vs daughter and which looks identical to a token swap of the same person.
-
-## If I had another day
-
-- Hold out 40 pairs and stop editing the phonetic table against the eval set.
-- Make the matcher return `{auto, review, reject}` instead of a bool. Initials go to review.
-- Use DOB / gender / pincode as a second key. Names alone are not identity.
-- Learn the transliteration map from labeled data instead of a hand list of Laxmi/Mohammed/Kavitha.
-- What I cut on purpose: UI, OCR, any ML model, any pip dependency.
+Do not auto-approve on initials. Do not bring back Jaro-Winkler.
 
 ## Layout
 
 ```
-data/pairs.py              labeled pairs (source of truth)
-data/name_pairs.csv        written by the runner
-src/normalize.py           honorifics, s/o w/o, Md. -> Mohammed
-src/matchers.py            token / jaro-winkler / phonetic / hybrid
-src/evaluate.py            metrics + tables
-run_evaluation.py          entry point
-tests/test_matchers.py     a few unit checks
-results/evaluation.json    full run
-results/errors.csv         every mistake
+data/pairs.py           labeled pairs + first/middle/last
+src/normalize.py        honorifics, s/o w/o, Md., parse_name_parts
+src/matchers.py         token_overlap + structured_fields
+src/evaluate.py         F0.5 table
+tests/test_matchers.py  unit + dataset ratio checks
+results/                last evaluation dump
 ```

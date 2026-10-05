@@ -1,122 +1,104 @@
 algorithm,id,kind,category,name_a,name_b,gold,predicted,score,note
-token_overlap,p013,FP,initials,S. Kumar,Sanjay Kumar,non-match,match,1.0,"same initial + Kumar, different person"
-token_overlap,p014,FP,initials,A. Patel,Anil Patel,non-match,match,1.0,Amit is not Anil; initial is not identity
-token_overlap,p015,FP,initials,R. Sharma,Rohit Sharma,non-match,match,1.0,"R. Sharma is also Rajesh, Ramesh, Rita..."
-token_overlap,p016,FP,initials,K. Venkatesh,Kiran Venkatesh,non-match,match,1.0,K. was Krishna on the other pair
-token_overlap,p017,FP,initials,M. Iyer,Meenakshi Iyer,non-match,match,1.0,M. S. Iyer vs a different M. Iyer
-token_overlap,p018,FP,initials,P. Rao,Priya Rao,non-match,match,1.0,P.N. Rao is not Priya Rao
-token_overlap,p034,FN,transliteration,Lakshmi Narayan,Laxmi Narayan,match,non-match,0.5,ksh vs x
-token_overlap,p035,FN,transliteration,Kavitha Reddy,Kavita Reddy,match,non-match,0.5,south Indian -tha vs -ta
-token_overlap,p036,FN,transliteration,Gautam Das,Goutham Das,match,non-match,0.5,au vs ou
-token_overlap,p037,FN,transliteration,Bharat Singh,Bharath Singh,match,non-match,0.5,terminal h
-token_overlap,p038,FN,transliteration,Poornima Rao,Purnima Rao,match,non-match,0.5,oo vs u
-token_overlap,p039,FN,transliteration,Aishwarya Nair,Aiswarya Nair,match,non-match,0.5,shw vs sw
-token_overlap,p040,FN,transliteration,Sreenivasulu,Srinivasulu,match,non-match,0.0,ee vs i
-token_overlap,p041,FN,transliteration,Abdul Rahman,Abdur Rahman,match,non-match,0.5,ul vs ur
-token_overlap,p042,FN,transliteration,Yusuf Sheikh,Yousuf Shaikh,match,non-match,0.0,u/ou and sheikh/shaikh
-token_overlap,p044,FN,transliteration,Chaitanya,Chaithanya,match,non-match,0.0,inserted h
-token_overlap,p062,FP,middle_relation,Ananya Srinivasan,Srinivasan Ananya,non-match,match,1.0,could be father; labeled as different people here
-token_overlap,p076,FN,spacing,Ram Kumar,Ramkumar,match,non-match,0.0,space dropped on DL
-token_overlap,p077,FN,spacing,Sai Ram,Sairam,match,non-match,0.0,compound given name glued
-token_overlap,p093,FN,south_indian,Gopalakrishnan,Gopala Krishnan,match,non-match,0.0,agglutinative vs split
-token_overlap,p094,FP,south_indian,R. Karthik,Karthik Rajesh,non-match,match,1.0,"father is Ramesh, not Rajesh"
-token_overlap,p095,FP,south_indian,M. Vijay,Vijay Mohan,non-match,match,1.0,Manohar vs Mohan
-token_overlap,p096,FP,south_indian,S. Priyanka,Priyanka Suresh,non-match,match,1.0,Selvaraj vs Suresh
-token_overlap,p114,FN,transliteration,Meera Joshi,Mira Joshi,match,non-match,0.5,"Meera vs Mira, same woman"
-token_overlap,p116,FN,compound,Venkat Subramanian,Venkata Subramanian,match,non-match,0.5,Venkat is a clipped Venkata
-token_overlap,p117,FN,compound,Krishna Murthy,Krishnamurthy,match,non-match,0.0,space vs closed compound
-token_overlap,p118,FN,compound,Raja Sekhar,Rajasekhar,match,non-match,0.0,Telugu compound
-token_overlap,p119,FN,compound,Surya Prakash,Suryaprakash,match,non-match,0.0,closed compound on PAN
-token_overlap,p121,FN,compound,Chandra Shekhar,Chandrashekhar,match,non-match,0.0,shekhar compounding
-token_overlap,p122,FN,compound,Nirmal Kumar,Nirmalkumar,match,non-match,0.0,Kumar glued
-token_overlap,p124,FN,transliteration,Krishna Murthy,Krishna Moorthy,match,non-match,0.5,Murthy vs Moorthy
-token_overlap,p126,FN,transliteration,Mohd. Yusuf,Mohammed Yousuf,match,non-match,0.5,both abbreviation and ou/u
-token_overlap,p131,FN,transliteration,Geeta Devi,Gita Devi,match,non-match,0.5,ee vs i
-token_overlap,p133,FN,transliteration,Iqbal Hussain,Ikbal Husain,match,non-match,0.0,q/k and ss/s
-token_overlap,p137,FP,initials,S. Dutta,Suman Dutta,non-match,match,1.0,same initial trap
-token_overlap,p138,FN,spacing,Prabhu Deva,Prabhudeva,match,non-match,0.0,space in stage-style name
-token_overlap,p139,FN,transliteration,Jagdish Prasad,Jagdeesh Prasad,match,non-match,0.5,i vs ee
-token_overlap,p141,FN,transliteration,Navin Rao,Naveen Rao,match,non-match,0.5,i vs ee
-token_overlap,p143,FN,transliteration,Fathima,Fatima,match,non-match,0.0,th vs t
-token_overlap,p144,FN,transliteration,Fathima Noor,Fatima Nur,match,non-match,0.0,Noor/Nur as well
-token_overlap,p147,FN,transliteration,Shashi Kapoor,Sashi Kapoor,match,non-match,0.5,sh vs s
-token_overlap,p150,FP,initials,R.D. Burman,Rahul Dutta Burman,non-match,match,1.0,"D is Dev, not Dutta"
-jaro_winkler,p002,FN,initials,R.K. Sharma,Rajesh Kumar Sharma,match,non-match,0.7474,"two initials, middle filled in"
-jaro_winkler,p004,FN,initials,P.N. Rao,Prabhakar Narayan Rao,match,non-match,0.5907,Andhra-style initials
-jaro_winkler,p005,FN,initials,A. Patel,Amit Patel,match,non-match,0.825,Gujarati given name expanded
-jaro_winkler,p006,FN,initials,K. Venkatesh,Krishna Venkatesh,match,non-match,0.7675,K. could be Krishna or Kumar
-jaro_winkler,p010,FN,initials,J. Singh,Jaspreet Singh,match,non-match,0.5462,Punjabi given name
-jaro_winkler,p011,FN,initials,T.K. Nair,Thankamani Krishnan Nair,match,non-match,0.7318,Kerala long form vs DL initials
-jaro_winkler,p012,FN,initials,B. Ghosh,Bikash Ghosh,match,non-match,0.7464,Bengali given name
-jaro_winkler,p013,FP,initials,S. Kumar,Sanjay Kumar,non-match,match,0.9167,"same initial + Kumar, different person"
-jaro_winkler,p017,FP,initials,M. Iyer,Meenakshi Iyer,non-match,match,0.8857,M. S. Iyer vs a different M. Iyer
-jaro_winkler,p027,FP,name_order,Kumar Suresh,Suresh Kumaran,non-match,match,0.9714,Kumaran is not Kumar; swap matcher can overreach
-jaro_winkler,p028,FP,name_order,Sharma Anjali,Anjali Verma,non-match,match,0.8905,"same given name, different family"
-jaro_winkler,p029,FP,name_order,Reddy Chaitanya,Chaitanya Naidu,non-match,match,0.8933,different caste/family name
-jaro_winkler,p045,FP,transliteration,Mohammed Irfan,Mohammed Imran,non-match,match,0.9692,"Irfan vs Imran — close, different people"
-jaro_winkler,p046,FP,transliteration,Kavitha Reddy,Kavitha Rani,non-match,match,0.8885,"same given spelling, different second name"
-jaro_winkler,p047,FP,transliteration,Yusuf Sheikh,Yusuf Shah,non-match,match,0.9232,Sheikh vs Shah
-jaro_winkler,p048,FP,transliteration,Bharat Singh,Bharat Sinha,non-match,match,0.9667,Singh vs Sinha
-jaro_winkler,p050,FN,middle_relation,Priya Sharma,Priya w/o Rajesh Sharma,match,non-match,0.8763,husband's name appears on one doc only
-jaro_winkler,p054,FN,middle_relation,Rohit,Rohit Kumar Gupta,match,non-match,0.8667,single given name vs full three-part
-jaro_winkler,p062,FP,middle_relation,Ananya Srinivasan,Srinivasan Ananya,non-match,match,1.0,could be father; labeled as different people here
-jaro_winkler,p063,FP,middle_relation,Rohit Kumar Gupta,Rohit Kumar Mishra,non-match,match,0.8842,"same first+middle, different surname"
-jaro_winkler,p073,FP,honorifics,Kumari Priya Nair,Priya Kumari,non-match,match,0.8982,honorific Kumari vs surname Kumari — different people
-jaro_winkler,p074,FP,honorifics,Dr. A. P. Singh,Dr. A. K. Singh,non-match,match,0.9407,"same title, different middle initial"
-jaro_winkler,p075,FP,honorifics,Shri Ram Prasad,Shri Ram Pratap,non-match,match,0.9111,Prasad vs Pratap
-jaro_winkler,p084,FP,spacing,Ram Kumar,Ram Kumari,non-match,match,0.98,Kumar vs Kumari is not a spacing issue
-jaro_winkler,p085,FP,spacing,Sai Ram,Sai Rahman,non-match,match,0.9333,glued-name matcher should not eat extra syllables
-jaro_winkler,p087,FN,south_indian,M. Vijay,Vijay Manohar,match,non-match,0.6667,M for Manohar
-jaro_winkler,p091,FN,south_indian,C.N. Ashok,Ashok Chellappan Nair,match,non-match,0.8635,two-letter initial unpack
-jaro_winkler,p094,FP,south_indian,R. Karthik,Karthik Rajesh,non-match,match,0.9286,"father is Ramesh, not Rajesh"
-jaro_winkler,p096,FP,south_indian,S. Priyanka,Priyanka Suresh,non-match,match,0.9333,Selvaraj vs Suresh
-jaro_winkler,p098,FP,near_duplicate,Neha Gupta,Nisha Gupta,non-match,match,0.9436,"Neha/Nisha, very close JW"
-jaro_winkler,p099,FP,near_duplicate,Ramesh Sharma,Rajesh Sharma,non-match,match,0.959,classic sibling pair
-jaro_winkler,p100,FP,near_duplicate,Pooja Singh,Poonam Singh,non-match,match,0.8824,shared prefix Poo-
-jaro_winkler,p101,FP,near_duplicate,Amit Verma,Sumit Verma,non-match,match,0.9061,Amit/Sumit
-jaro_winkler,p103,FP,near_duplicate,Rahul Sharma,Rahul Verma,non-match,match,0.8803,"identical given name, different family"
-jaro_winkler,p104,FP,near_duplicate,Anita Desai,Anita Deshmukh,non-match,match,0.8922,Desai vs Deshmukh
-jaro_winkler,p105,FP,near_duplicate,Vivek Joshi,Vikas Joshi,non-match,match,0.9273,Vivek vs Vikas
-jaro_winkler,p106,FP,near_duplicate,Sneha Kulkarni,Neha Kulkarni,non-match,match,0.9857,Sneha vs Neha
-jaro_winkler,p107,FP,near_duplicate,Arun Nair,Varun Nair,non-match,match,0.963,leading V
-jaro_winkler,p108,FP,near_duplicate,Manish Agarwal,Manisha Agarwal,non-match,match,0.9867,"gendered near-duplicate, not the same person"
-jaro_winkler,p110,FP,near_duplicate,Hari,Harish,non-match,match,0.9333,Hari vs Harish
-jaro_winkler,p112,FP,near_duplicate,Ananya Iyer,Ananya Iyengar,non-match,match,0.9571,Iyer vs Iyengar
-jaro_winkler,p113,FP,near_duplicate,Kabir Khan,Kadir Khan,non-match,match,0.9467,b vs d
-jaro_winkler,p115,FP,near_duplicate,Meera Joshi,Neera Joshi,non-match,match,0.9636,Meera vs Neera
-jaro_winkler,p120,FN,compound,Lakshmi Narasimhan,L. Narasimhan,match,non-match,0.7875,first compound reduced to L
-jaro_winkler,p123,FP,compound,Venkat Subramanian,Venkat Sundaram,non-match,match,0.9156,Subramanian vs Sundaram
-jaro_winkler,p132,FP,near_duplicate,Geeta Devi,Geeta Devidayal,non-match,match,0.9286,Devi vs a longer surname
-jaro_winkler,p134,FP,near_duplicate,Iqbal Hussain,Iqbal Hassan,non-match,match,0.9285,Hussain vs Hassan
-jaro_winkler,p135,FP,near_duplicate,Tanya Bhatt,Tanya Bhattacharya,non-match,match,0.9176,Bhatt is not a shortening of Bhattacharya here
-jaro_winkler,p137,FP,initials,S. Dutta,Suman Dutta,non-match,match,0.9273,same initial trap
-jaro_winkler,p140,FP,near_duplicate,Jagdish Prasad,Jagdish Pradhan,non-match,match,0.9437,Prasad vs Pradhan
-jaro_winkler,p142,FP,near_duplicate,Navin Rao,Navin Rau,non-match,match,0.9556,Rao vs Rau
-jaro_winkler,p145,FP,near_duplicate,Fathima Noor,Fathima Noori,non-match,match,0.9846,Noor vs Noori
-jaro_winkler,p146,FP,near_duplicate,Oommen Chandy,Omen Chandy,non-match,match,0.9692,"looks like a spelling variant, is not this person"
-jaro_winkler,p148,FP,near_duplicate,Shashi Kapoor,Shashi Kapor,non-match,match,0.9846,Kapoor vs Kapor
-jaro_winkler,p150,FP,initials,R.D. Burman,Rahul Dutta Burman,non-match,match,0.9111,"D is Dev, not Dutta"
-phonetic,p013,FP,initials,S. Kumar,Sanjay Kumar,non-match,match,1.0,"same initial + Kumar, different person"
-phonetic,p014,FP,initials,A. Patel,Anil Patel,non-match,match,1.0,Amit is not Anil; initial is not identity
-phonetic,p015,FP,initials,R. Sharma,Rohit Sharma,non-match,match,1.0,"R. Sharma is also Rajesh, Ramesh, Rita..."
-phonetic,p016,FP,initials,K. Venkatesh,Kiran Venkatesh,non-match,match,1.0,K. was Krishna on the other pair
-phonetic,p017,FP,initials,M. Iyer,Meenakshi Iyer,non-match,match,1.0,M. S. Iyer vs a different M. Iyer
-phonetic,p018,FP,initials,P. Rao,Priya Rao,non-match,match,1.0,P.N. Rao is not Priya Rao
-phonetic,p062,FP,middle_relation,Ananya Srinivasan,Srinivasan Ananya,non-match,match,1.0,could be father; labeled as different people here
-phonetic,p094,FP,south_indian,R. Karthik,Karthik Rajesh,non-match,match,1.0,"father is Ramesh, not Rajesh"
-phonetic,p095,FP,south_indian,M. Vijay,Vijay Mohan,non-match,match,1.0,Manohar vs Mohan
-phonetic,p096,FP,south_indian,S. Priyanka,Priyanka Suresh,non-match,match,1.0,Selvaraj vs Suresh
-phonetic,p137,FP,initials,S. Dutta,Suman Dutta,non-match,match,1.0,same initial trap
-phonetic,p150,FP,initials,R.D. Burman,Rahul Dutta Burman,non-match,match,1.0,"D is Dev, not Dutta"
-hybrid,p013,FP,initials,S. Kumar,Sanjay Kumar,non-match,match,1.0,"same initial + Kumar, different person"
-hybrid,p014,FP,initials,A. Patel,Anil Patel,non-match,match,1.0,Amit is not Anil; initial is not identity
-hybrid,p015,FP,initials,R. Sharma,Rohit Sharma,non-match,match,1.0,"R. Sharma is also Rajesh, Ramesh, Rita..."
-hybrid,p016,FP,initials,K. Venkatesh,Kiran Venkatesh,non-match,match,1.0,K. was Krishna on the other pair
-hybrid,p017,FP,initials,M. Iyer,Meenakshi Iyer,non-match,match,1.0,M. S. Iyer vs a different M. Iyer
-hybrid,p018,FP,initials,P. Rao,Priya Rao,non-match,match,1.0,P.N. Rao is not Priya Rao
-hybrid,p062,FP,middle_relation,Ananya Srinivasan,Srinivasan Ananya,non-match,match,1.0,could be father; labeled as different people here
-hybrid,p094,FP,south_indian,R. Karthik,Karthik Rajesh,non-match,match,1.0,"father is Ramesh, not Rajesh"
-hybrid,p095,FP,south_indian,M. Vijay,Vijay Mohan,non-match,match,1.0,Manohar vs Mohan
-hybrid,p096,FP,south_indian,S. Priyanka,Priyanka Suresh,non-match,match,1.0,Selvaraj vs Suresh
-hybrid,p137,FP,initials,S. Dutta,Suman Dutta,non-match,match,1.0,same initial trap
-hybrid,p150,FP,initials,R.D. Burman,Rahul Dutta Burman,non-match,match,1.0,"D is Dev, not Dutta"
+token_overlap,p043,FN,transliteration,Lakshmi Narayan,Laxmi Narayan,match,non-match,0.5,"ksh vs x, same last — review-queue spelling, still same woman"
+token_overlap,p044,FN,transliteration,Kavitha Reddy,Kavita Reddy,match,non-match,0.5,"-tha vs -ta, same last"
+token_overlap,p045,FN,transliteration,Meera Joshi,Mira Joshi,match,non-match,0.5,Meera vs Mira
+token_overlap,p046,FN,transliteration,Geeta Devi,Gita Devi,match,non-match,0.5,ee vs i
+token_overlap,p047,FN,transliteration,Navin Rao,Naveen Rao,match,non-match,0.5,i vs ee
+token_overlap,p049,FN,compound,Ram Kumar,Ramkumar,match,non-match,0.0,space dropped on DL; same two parts glued
+token_overlap,p050,FN,compound,Sai Ram,Sairam,match,non-match,0.0,compound given glued
+token_overlap,p051,FN,compound,Krishna Murthy,Krishnamurthy,match,non-match,0.0,closed compound on PAN
+token_overlap,p052,FN,compound,Raja Sekhar,Rajasekhar,match,non-match,0.0,Telugu compound glued
+token_overlap,p054,FN,compound,Venkat Subramanian,Venkata Subramanian,match,non-match,0.5,"Venkat clipped from Venkata, same last"
+token_overlap,p055,FN,south_indian,Gopalakrishnan,Gopala Krishnan,match,non-match,0.0,agglutinative vs split
+token_overlap,p056,FN,compound,Chandra Shekhar,Chandrashekhar,match,non-match,0.0,shekhar compounding
+token_overlap,p057,FN,compound,Nirmal Kumar,Nirmalkumar,match,non-match,0.0,Kumar glued
+token_overlap,p058,FN,compound,Surya Prakash,Suryaprakash,match,non-match,0.0,closed compound
+token_overlap,p059,FN,compound,Prabhu Deva,Prabhudeva,match,non-match,0.0,space vs closed
+token_overlap,p061,FN,transliteration,Fathima,Fatima,match,non-match,0.0,"th vs t, given-only"
+token_overlap,p068,FP,initials,S. Kumar,Suresh Kumar,non-match,match,1.0,S. is not identity; could be Sanjay
+token_overlap,p069,FP,initials,S. Kumar,Sanjay Kumar,non-match,match,1.0,"same initial + Kumar, different person"
+token_overlap,p070,FP,initials,A. Patel,Amit Patel,non-match,match,1.0,A. is not Amit
+token_overlap,p071,FP,initials,A. Patel,Anil Patel,non-match,match,1.0,Amit is not Anil; initial is not identity
+token_overlap,p072,FP,initials,R. Sharma,Rohit Sharma,non-match,match,1.0,"R. Sharma is also Rajesh, Ramesh, Rita"
+token_overlap,p073,FP,initials,R. Sharma,Rajesh Sharma,non-match,match,1.0,"same initial, different given"
+token_overlap,p074,FP,initials,K. Venkatesh,Krishna Venkatesh,non-match,match,1.0,K. could be Krishna or Kiran
+token_overlap,p075,FP,initials,K. Venkatesh,Kiran Venkatesh,non-match,match,1.0,K. was Krishna on the other pair
+token_overlap,p076,FP,initials,N. Mehta,Nidhi Mehta,non-match,match,1.0,N. is not identity
+token_overlap,p077,FP,initials,M. Iyer,Meenakshi Iyer,non-match,match,1.0,M. Iyer is many people
+token_overlap,p078,FP,initials,P. Rao,Priya Rao,non-match,match,1.0,P. Rao is not Priya Rao
+token_overlap,p079,FP,initials,P.N. Rao,Prabhakar Narayan Rao,non-match,match,1.0,"two initials, many expansions"
+token_overlap,p080,FP,initials,J. Singh,Jaspreet Singh,non-match,match,1.0,J. Singh is extremely common
+token_overlap,p081,FP,initials,B. Ghosh,Bikash Ghosh,non-match,match,1.0,B. is not identity
+token_overlap,p082,FP,initials,S. Dutta,Sourav Dutta,non-match,match,1.0,S. Dutta vs Sourav
+token_overlap,p083,FP,initials,S. Dutta,Suman Dutta,non-match,match,1.0,same initial trap
+token_overlap,p084,FP,initials,R.K. Sharma,Rajesh Kumar Sharma,non-match,match,1.0,R.K. is not uniquely Rajesh Kumar
+token_overlap,p085,FP,initials,R.D. Burman,Rahul Dev Burman,non-match,match,1.0,"two initials, not unique"
+token_overlap,p086,FP,initials,R.D. Burman,Rahul Dutta Burman,non-match,match,1.0,"D is Dev on one story, Dutta on another"
+token_overlap,p087,FP,initials,Dr. A. P. Singh,Amar Pal Singh,non-match,match,1.0,"doctor + initials, expansion unproven"
+token_overlap,p089,FP,initials,T.K. Nair,Thankamani Krishnan Nair,non-match,match,1.0,"Kerala long form vs initials, unproven"
+token_overlap,p090,FP,initials,M. S. Iyer,Mani Shankar Iyer,non-match,match,1.0,"double initial, many expansions"
+token_overlap,p091,FP,initials,V. Subramanian,Venkata Subramanian,non-match,match,1.0,V. is not uniquely Venkata
+token_overlap,p092,FP,initials,L. Narasimhan,Lakshmi Narasimhan,non-match,match,1.0,L. could be Lakshmi or others
+token_overlap,p093,FP,initials,Ananya S,Ananya Srinivasan,non-match,match,1.0,trailing initial is not a unique last
+token_overlap,p094,FP,initials,Lakshmi P,Lakshmi Padmanabhan,non-match,match,1.0,trailing P is not uniquely Padmanabhan
+token_overlap,p095,FP,south_indian,R. Karthik,Karthik Ramesh,non-match,match,1.0,"father initial vs a specific father name, unproven"
+token_overlap,p096,FP,south_indian,R. Karthik,Karthik Rajesh,non-match,match,1.0,"father is Ramesh in one story, Rajesh in another"
+token_overlap,p097,FP,south_indian,M. Vijay,Vijay Manohar,non-match,match,1.0,M for Manohar is an assumption
+token_overlap,p098,FP,south_indian,M. Vijay,Vijay Mohan,non-match,match,1.0,Manohar vs Mohan
+token_overlap,p099,FP,south_indian,S. Priyanka,Priyanka Selvaraj,non-match,match,1.0,S. is not uniquely Selvaraj
+token_overlap,p100,FP,south_indian,S. Priyanka,Priyanka Suresh,non-match,match,1.0,Selvaraj vs Suresh
+token_overlap,p101,FP,south_indian,K. Balaji,Balaji Krishnan,non-match,match,1.0,"patronymic as initial vs last, unproven"
+token_overlap,p102,FP,south_indian,C.N. Ashok,Ashok Chellappan Nair,non-match,match,1.0,two-letter initial unpack unproven
+token_overlap,p103,FP,middle_relation,Ananya Srinivasan,Srinivasan Ananya,non-match,match,1.0,token swap can be father vs daughter
+token_overlap,p104,FP,middle_relation,Rajesh Krishnan,Krishnan Rajesh,non-match,match,1.0,"patronymic swap, could be two people"
+token_overlap,p189,FP,name_order,Raju s/o Shankar,Shankar Raju,non-match,match,1.0,s/o form vs father-name-first; could be two people
+token_overlap,p190,FP,spacing,P. C. Sarkar,PC Sarkar,non-match,match,0.82,packed PC vs P + C — could be two different initial styles/people
+token_overlap,p194,FP,honorifics,Capt. Vikram Rathore,Vikram Singh Rathore,non-match,match,0.82,"rank stripped, extra Singh as middle — could be different Vikram Rathore"
+token_overlap,p196,FP,honorifics,KUMARI ANJALI,Anjali Kumari,non-match,match,0.82,honorific-stripped given vs given+surname Kumari
+token_overlap,p199,FP,middle_relation,Vivek Anand Joshi,Vivek Anand,non-match,match,0.82,last dropped; Vivek Anand may be a different two-part name
+token_overlap,p200,FP,middle_relation,Arjun Ramesh Mehta,Ramesh Arjun Mehta,non-match,match,1.0,"first/middle swapped, not assumed same"
+token_overlap,p201,FP,middle_relation,Deepa Venkatesh Iyer,Venkatesh Deepa Iyer,non-match,match,1.0,first/middle swapped
+token_overlap,p202,FP,middle_relation,Amit Kumar Patel,Kumar Amit Patel,non-match,match,1.0,Kumar as first vs middle
+token_overlap,p203,FP,middle_relation,Rohit Kumar Gupta,Kumar Rohit,non-match,match,0.82,three-part vs Kumar Rohit
+token_overlap,p204,FP,middle_relation,Priya w/o Rajesh Sharma,Rajesh Sharma,non-match,match,0.82,wife's w/o line vs husband's name
+token_overlap,p205,FP,middle_relation,Rajesh s/o Krishnan,Krishnan,non-match,match,0.82,son vs father given-only
+token_overlap,p206,FP,middle_relation,Lakshmi Venkatesh,Venkatesh,non-match,match,0.82,wife using husband last vs husband given-only
+token_overlap,p207,FP,middle_relation,Fatima,Khan Fatima,non-match,match,0.82,given-only vs surname-first different last present
+token_overlap,p208,FP,name_order,Ankit Agarwal,Agarwal Ankit Kumar,non-match,match,0.82,two-part vs three-part surname-first with extra Kumar
+token_overlap,p209,FP,name_order,Ram Prasad,Prasad Ram Kumar,non-match,match,0.82,extra Kumar on surname-first form
+token_overlap,p210,FP,name_order,Meera Joshi,Joshi Meera Bai,non-match,match,0.82,Bai added as last
+token_overlap,p212,FP,name_order,Divya Menon,Menon Divya Lakshmi,non-match,match,0.82,extra Lakshmi
+token_overlap,p213,FP,name_order,Aamir Khan,Khan Aamir Ahmed,non-match,match,0.82,extra Ahmed
+token_overlap,p214,FP,name_order,Sourav Banerjee,Banerjee Sourav Kumar,non-match,match,0.82,extra Kumar
+token_overlap,p217,FP,name_order,Suresh Kumar,Kumari Suresh,non-match,match,0.82,Kumar vs Kumari in swap
+token_overlap,p218,FP,name_order,Anjali Sharma,Sharma Anjali Devi,non-match,match,0.82,Devi added
+token_overlap,p219,FP,name_order,Vikas Jain,Jain Vikas Pal,non-match,match,0.82,Pal added
+token_overlap,p220,FP,name_order,Alok Nath,Nath Alok Kumar,non-match,match,0.82,Kumar added
+token_overlap,p232,FP,middle_relation,Mohammed Ali Khan,Ali Mohammed,non-match,match,0.82,three-part vs swapped two-part missing Khan
+token_overlap,p233,FP,middle_relation,Mohammed Farooq,Farooq Mohammed Sheikh,non-match,match,0.82,Sheikh added
+token_overlap,p234,FP,honorifics,Lakshmi Devi,Devi Lakshmi Nair,non-match,match,0.82,Nair added after swap
+token_overlap,p235,FP,honorifics,Priya Nair,Nair Priya Kumari,non-match,match,0.82,Kumari added as last after swap
+structured_fields,p042,FN,south_indian,Nair Anand Krishnan,Anand Krishnan Nair,match,non-match,0.04,"house name moving position, same three tokens"
+structured_fields,p043,FN,transliteration,Lakshmi Narayan,Laxmi Narayan,match,non-match,0.35,"ksh vs x, same last — review-queue spelling, still same woman"
+structured_fields,p044,FN,transliteration,Kavitha Reddy,Kavita Reddy,match,non-match,0.35,"-tha vs -ta, same last"
+structured_fields,p045,FN,transliteration,Meera Joshi,Mira Joshi,match,non-match,0.35,Meera vs Mira
+structured_fields,p046,FN,transliteration,Geeta Devi,Gita Devi,match,non-match,0.35,ee vs i
+structured_fields,p047,FN,transliteration,Navin Rao,Naveen Rao,match,non-match,0.35,i vs ee
+structured_fields,p049,FN,compound,Ram Kumar,Ramkumar,match,non-match,0.35,space dropped on DL; same two parts glued
+structured_fields,p050,FN,compound,Sai Ram,Sairam,match,non-match,0.35,compound given glued
+structured_fields,p051,FN,compound,Krishna Murthy,Krishnamurthy,match,non-match,0.35,closed compound on PAN
+structured_fields,p052,FN,compound,Raja Sekhar,Rajasekhar,match,non-match,0.35,Telugu compound glued
+structured_fields,p053,FN,middle_relation,Raja Sekhar,Raja Sekhar Reddy,match,non-match,0.35,caste/family name added on one doc
+structured_fields,p054,FN,compound,Venkat Subramanian,Venkata Subramanian,match,non-match,0.35,"Venkat clipped from Venkata, same last"
+structured_fields,p055,FN,south_indian,Gopalakrishnan,Gopala Krishnan,match,non-match,0.35,agglutinative vs split
+structured_fields,p056,FN,compound,Chandra Shekhar,Chandrashekhar,match,non-match,0.35,shekhar compounding
+structured_fields,p057,FN,compound,Nirmal Kumar,Nirmalkumar,match,non-match,0.35,Kumar glued
+structured_fields,p058,FN,compound,Surya Prakash,Suryaprakash,match,non-match,0.35,closed compound
+structured_fields,p059,FN,compound,Prabhu Deva,Prabhudeva,match,non-match,0.35,space vs closed
+structured_fields,p061,FN,transliteration,Fathima,Fatima,match,non-match,0.35,"th vs t, given-only"
+structured_fields,p103,FP,middle_relation,Ananya Srinivasan,Srinivasan Ananya,non-match,match,1.0,token swap can be father vs daughter
+structured_fields,p104,FP,middle_relation,Rajesh Krishnan,Krishnan Rajesh,non-match,match,1.0,"patronymic swap, could be two people"
+structured_fields,p189,FP,name_order,Raju s/o Shankar,Shankar Raju,non-match,match,1.0,s/o form vs father-name-first; could be two people
+structured_fields,p194,FP,honorifics,Capt. Vikram Rathore,Vikram Singh Rathore,non-match,match,1.0,"rank stripped, extra Singh as middle — could be different Vikram Rathore"
+structured_fields,p196,FP,honorifics,KUMARI ANJALI,Anjali Kumari,non-match,match,0.9325,honorific-stripped given vs given+surname Kumari
+structured_fields,p217,FP,name_order,Suresh Kumar,Kumari Suresh,non-match,match,0.9325,Kumar vs Kumari in swap

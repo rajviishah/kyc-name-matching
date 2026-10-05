@@ -1,0 +1,19 @@
+---
+description: Persistent Indian KYC name-matching business context for this repo.
+alwaysApply: true
+---
+
+# KYC name matching
+
+This codebase verifies whether two extracted Indian POI/POA name strings (PAN, Aadhaar, passport, DL, voter ID) refer to the same person.
+
+- False positive = two different people auto-approved (fraud). Worse than a false negative (same person → reviewer).
+- Primary metric: F0.5. Do not trade precision for recall without saying so.
+- Think in **first / middle / last** name components, not bag-of-characters.
+- Read `docs/kyc-business-context.md` before changing labels or matchers.
+
+Project skills (invoke by name or when the task matches):
+
+- `.cursor/skills/kyc-data-alignment/SKILL.md` — keep ~30% match / 70% non-match with first/middle/last
+- `.cursor/skills/kyc-matching-strategy/SKILL.md` — token_overlap + structured_fields only
+- `.cursor/skills/kyc-pr-review/SKILL.md` — PR review for this repo

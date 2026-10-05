@@ -59,7 +59,20 @@ def write_dataset_csv(path: Path) -> int:
     with path.open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(
             fh,
-            fieldnames=["id", "name_a", "name_b", "match", "category", "note"],
+            fieldnames=[
+                "id",
+                "name_a",
+                "name_b",
+                "match",
+                "category",
+                "note",
+                "a_first",
+                "a_middle",
+                "a_last",
+                "b_first",
+                "b_middle",
+                "b_last",
+            ],
         )
         writer.writeheader()
         for row in rows:
